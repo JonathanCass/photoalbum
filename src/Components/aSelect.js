@@ -5,7 +5,7 @@ const styles = {
 
 }
 
-class photoView extends React.Component {
+class aSelect extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -13,10 +13,11 @@ class photoView extends React.Component {
   render() {
     return (
       <div>
-        <p> Photo View page </p>
+        <p>ALBUM SELECT PAGE</p>
+        <Link to ={'/aView'}> Link to Album View </Link>
       </div>
     )
   }
 }
 
-export default photoView
+export default aSelect

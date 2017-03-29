@@ -5,7 +5,7 @@ const styles = {
 
 }
 
-class albumView extends React.Component {
+class aView extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -13,10 +13,11 @@ class albumView extends React.Component {
   render() {
     return (
       <div>
-        
+        <p>ALBUM VIEW PAGE</p>
+        <Link to ={'/photoView'}> Link to Photo View </Link>
       </div>
     )
   }
 }
 
-export default albumView
+export default aView
