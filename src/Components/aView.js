@@ -57,32 +57,32 @@ class aView extends React.Component {
   }
 
   render() {
-  	//console.log(this.props.match.params.album)
   	var index = 0
   	albums.forEach(album=>{
   		if (album.title === this.props.match.params.album){
   			index = album.index
   		}
   	})
-  	console.log(index)
     return (
       <div>
       	<div style={styles.navBar}>
       		<ul style={styles.navList}>
       			{albums.map(function(album){
                 	return(
-      					<li style={styles.navEntry}> {album.title} </li>
+                		<Link to={'/aView/' + album.title}>
+      						<li style={styles.navEntry}> {album.title} </li>
+      		   			</Link>
       		   		)
                 })}
       		</ul>
       	</div> 
         <div style={styles.pGrid}>
-        		{albums[index].photos.map(function(photo){   //need to get album index from page
+        		{albums[index].photos.map(function(photo, i){
                 	return(
-		        		<Link to={'/pView/' + 'picture id'} style={styles.link} >
+		        		<Link to={'/pView/' + i} style={styles.link} >
 		        			<div style={styles.previewBox}>
 		        				<img src={photo} style={styles.preview}/>
-		        				<div style={styles.label}> Photo Label </div>
+		        				<div style={styles.label}> Poster {i + 1} </div>
 		        			</div>
 		        		</Link>
         				)

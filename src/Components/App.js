@@ -3,7 +3,6 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 import aSelect from './aSelect'
 import aView from './aView'
 import pView from './pView'
-import {Link} from 'react-router-dom'
 
 class App extends React.Component {
   constructor(props) {
