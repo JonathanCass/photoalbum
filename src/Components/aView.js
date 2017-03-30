@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import albums from '../assets/albums/albums.json'
 import {setIndex} from '../api/indexReducer'
+import store from '../store'
 
 const styles = {
 	navBar: {
@@ -56,22 +57,22 @@ class aView extends React.Component {
   constructor(props) {
     super(props)
   }
-
-  render() {
-  	var index = 0
+  indexChange(){
   	albums.forEach(album=>{
   		if (album.title === this.props.match.params.album){
-  			index = album.index
   			setIndex(album.index)
   		}
   	})
+  }
+  render() {
+  	this.indexChange()
     return (
       <div>
       	<div style={styles.navBar}>
       		<ul style={styles.navList}>
       			{albums.map(function(album){
                 	return(
-                		<Link to={'/aView/' + album.title} key={'nav' + album.title}>
+                		<Link to={'/aView/' + album.title} key={'nav' + album.title} >
       						<li style={styles.navEntry}> {album.title} </li>
       		   			</Link>
       		   		)
@@ -79,17 +80,17 @@ class aView extends React.Component {
       		</ul>
       	</div> 
         <div style={styles.pGrid}>
-        		{albums[index].photos.map(function(photo, i){
+        		{albums[store.getState().index].photos.map(function(photo, i){
                 	return(
 		        		<Link to={'/pView/' + i} style={styles.link} key={'preview' + i}>
 		        			<div style={styles.previewBox}>
-		        				<img src={photo} style={styles.preview}/>
+		        				<img src={photo} style={styles.preview} alt="No Error"/>
 		        				<div style={styles.label}> Poster {i + 1} </div>
 		        			</div>
 		        		</Link>
         				)
                 })}
-        	</div>
+        	</div> 
       </div>
     )
   }
