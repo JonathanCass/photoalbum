@@ -9,7 +9,7 @@ const styles = {
 		width: 200,
 		height: 25,
 		position: 'relative',
-		top: 50
+		top: 50,
 	},
 	label:{
 		textAlign: 'center',
@@ -37,7 +37,7 @@ class pView extends React.Component {
   render() {
     return (
       <div style={styles.pContainer}>
-      	<button style={styles.backButton}> Back Button </button>
+      	<button style={styles.backButton}> Back to Album  {store.getState().index}</button>
       	<h1 style={styles.label}> Photo Label </h1> 
         <img style={styles.photo} src={albums[store.getState().index].photos[this.props.match.params.photo]} alt="No error" />
       </div>
