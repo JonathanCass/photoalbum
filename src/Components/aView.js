@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import albums from '../assets/albums/albums.json'
 
 const styles = {
 	navBar: {
@@ -64,7 +65,7 @@ class aView extends React.Component {
         <div style={styles.pGrid}>
         		<Link to={'/pView'}>
         			<div style={styles.previewBox}>
-        				<img src='' alt='Photo Preview' style={styles.preview}/>
+        				<img src='https://unsplash.com/photos/1fyccRaS_u4' alt='Photo Preview' style={styles.preview}/>
         				<div style={styles.label}> Photo Label </div>
         			</div>
         		</Link>
