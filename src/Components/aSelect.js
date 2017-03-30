@@ -47,16 +47,15 @@ class aSelect extends React.Component {
   }
 
   render() {
-  	console.log(albums)
     return (
       <div style={styles.asContainer}>
         <h1 style={styles.header}>My Albums</h1>
         	<div style={styles.aGrid}>
         		{albums.map(function(album){
                 	return(
-        				<Link to={'/aView/' + album.title} style={styles.link}>
+        				<Link to={'/aView/' + album.title} style={styles.link} key={'Album ' + album.title}>
         					<div style={styles.previewBox}>
-        						<img src={album.photos[1]} alt='Album Preview' style={styles.preview}/>
+        						<img src={album.photos[1]} style={styles.preview}/>
         						<div style={styles.label}> {album.title} </div>
         					</div>
         				</Link>

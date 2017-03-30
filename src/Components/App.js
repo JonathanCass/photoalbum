@@ -15,8 +15,8 @@ class App extends React.Component {
       <Router>
         <div>
           <Route exact={true} path='/' component={aSelect} />
-          <Route path='/aView/' component={aView} />
-          <Route path='/pView/' component={pView} />
+          <Route path='/aView/:album' component={aView} />
+          <Route path='/pView/:photo' component={pView} />
         </div>
       </Router>
     )

@@ -57,6 +57,14 @@ class aView extends React.Component {
   }
 
   render() {
+  	//console.log(this.props.match.params.album)
+  	var index = 0
+  	albums.forEach(album=>{
+  		if (album.title === this.props.match.params.album){
+  			index = album.index
+  		}
+  	})
+  	console.log(index)
     return (
       <div>
       	<div style={styles.navBar}>
@@ -69,11 +77,11 @@ class aView extends React.Component {
       		</ul>
       	</div> 
         <div style={styles.pGrid}>
-        		{albums[0].photos.map(function(photo){   //need to get album index from page
+        		{albums[index].photos.map(function(photo){   //need to get album index from page
                 	return(
-		        		<Link to={'/pView/' + 'picture id'} style={styles.link}>
+		        		<Link to={'/pView/' + 'picture id'} style={styles.link} >
 		        			<div style={styles.previewBox}>
-		        				<img src={photo} alt='Photo Preview' style={styles.preview}/>
+		        				<img src={photo} style={styles.preview}/>
 		        				<div style={styles.label}> Photo Label </div>
 		        			</div>
 		        		</Link>
