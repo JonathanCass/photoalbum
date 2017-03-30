@@ -20,20 +20,24 @@ const styles = {
 	previewBox:{
 		width: 200,
 		height: 300,
-		margin: 30
+		border: "solid grey 2px"
 	},	
 	preview: {
-		width: 200,
+		width: 196,
 		height: 250,
-		background: 'black'
+		border: "solid grey 2px",
+		borderWidth: ' 0 0 2px 0 '
 	},
 	label: {
-		width: 200,
+		width: 190,
 		height: 50,
 		fontSize: 26,
-		background: 'grey',
 		lineHeight: '48px',
 		textAlign: 'center'
+	},
+	link: {
+		display: 'block',
+		margin: 30
 	}
 }
 
@@ -50,7 +54,7 @@ class aSelect extends React.Component {
         	<div style={styles.aGrid}>
         		{albums.map(function(album){
                 	return(
-        				<Link to={'/aView' + album.title}>
+        				<Link to={'/aView/' + album.title} style={styles.link}>
         					<div style={styles.previewBox}>
         						<img src={album.photos[1]} alt='Album Preview' style={styles.preview}/>
         						<div style={styles.label}> {album.title} </div>

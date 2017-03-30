@@ -20,25 +20,32 @@ const styles = {
 		margin: '0 0 20px 10px',
 		background: 'green',
 		lineHeight: '38px',
-		textAlign: 'center'
+		textAlign: 'center',
+		border: "solid black 2px",
 	},
 	pGrid:{
 		display: 'flex',
 		flexWrap: 'wrap',
-		padding: 40
+		padding: 40,
+		paddingRight: 0
 	},
 	previewBox:{
 		width: 200,
-		height: 300
-	},	
+		height: 300,
+	},
+	link:{
+		marginRight: 20,
+		marginBottom: 20
+	},
 	preview: {
 		width: 200,
-		height: 250
+		height: 250,
+		border: "solid grey 2px"
 	},
 	label: {
 		width: 200,
 		height: 50,
-		background: 'grey',
+		border: "solid grey 2px",
 		lineHeight: '48px',
 		textAlign: 'center'
 	}
@@ -54,21 +61,24 @@ class aView extends React.Component {
       <div>
       	<div style={styles.navBar}>
       		<ul style={styles.navList}>
-      			<li style={styles.navEntry}> Album 1 </li>
-      			<li style={styles.navEntry}> Album 2 </li>
-      			<li style={styles.navEntry}> Album 3 </li>
-      			<li style={styles.navEntry}> Album 4 </li>
-      			<li style={styles.navEntry}> Album 5 </li>
-      			<li style={styles.navEntry}> Album 6 </li>
+      			{albums.map(function(album){
+                	return(
+      					<li style={styles.navEntry}> {album.title} </li>
+      		   		)
+                })}
       		</ul>
       	</div> 
         <div style={styles.pGrid}>
-        		<Link to={'/pView'}>
-        			<div style={styles.previewBox}>
-        				<img src='https://unsplash.com/photos/1fyccRaS_u4' alt='Photo Preview' style={styles.preview}/>
-        				<div style={styles.label}> Photo Label </div>
-        			</div>
-        		</Link>
+        		{albums[0].photos.map(function(photo){   //need to get album index from page
+                	return(
+		        		<Link to={'/pView/' + 'picture id'} style={styles.link}>
+		        			<div style={styles.previewBox}>
+		        				<img src={photo} alt='Photo Preview' style={styles.preview}/>
+		        				<div style={styles.label}> Photo Label </div>
+		        			</div>
+		        		</Link>
+        				)
+                })}
         	</div>
       </div>
     )
