@@ -14,7 +14,7 @@ const styles = {
 	navList: {
 		listStyle: 'none',
 		paddingTop: 100,
-		paddingLeft: 0
+		paddingLeft: 0,
 	},
 	navEntry: {
 		width: 180,
@@ -50,6 +50,13 @@ const styles = {
 		border: "solid grey 2px",
 		lineHeight: '48px',
 		textAlign: 'center'
+	},
+	header: {
+		background: 'transparent',
+		textAlign: 'center',
+		margin: 0,
+		paddingTop: 40,
+		fontSize: 52
 	}
 }
 
@@ -78,7 +85,8 @@ class aView extends React.Component {
       		   		)
                 })}
       		</ul>
-      	</div> 
+      	</div>
+      	<h1 style={styles.header}> {this.props.match.params.album} Album </h1> 
         <div style={styles.pGrid}>
         		{albums[store.getState().index].photos.map(function(photo, i){
                 	return(
