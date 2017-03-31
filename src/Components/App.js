@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 import aSelect from './aSelect'
 import aView from './aView'
 import pView from './pView'
+import custom from './custom'
 
 class App extends React.Component {
   render() {
@@ -12,6 +13,7 @@ class App extends React.Component {
           <Route exact={true} path='/' component={aSelect} />
           <Route path='/aView/:album' component={aView} />
           <Route path='/pView/:photo' component={pView} />
+          <Route path='/custom' component={custom} />
         </div>
       </Router>
     )

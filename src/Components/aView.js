@@ -9,7 +9,7 @@ const styles = {
 		float: 'left',
 		width: 200,
 		background: 'grey',
-		height: 1000
+		height: 1420
 	},
 	navList: {
 		listStyle: 'none',
