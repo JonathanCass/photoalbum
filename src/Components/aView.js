@@ -54,9 +54,9 @@ const styles = {
 }
 
 class aView extends React.Component {
-  constructor(props) {
+  /*constructor(props) {
     super(props)
-  }
+  }*/
   indexChange(){
   	albums.forEach(album=>{
   		if (album.title === this.props.match.params.album){

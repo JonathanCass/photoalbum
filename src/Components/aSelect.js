@@ -42,9 +42,9 @@ const styles = {
 }
 
 class aSelect extends React.Component {
-  constructor(props) {
+  /*constructor(props) {
     super(props)
-  }
+  }*/
 
   render() {
     return (

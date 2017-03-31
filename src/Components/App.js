@@ -5,10 +5,6 @@ import aView from './aView'
 import pView from './pView'
 
 class App extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     return (
       <Router>
