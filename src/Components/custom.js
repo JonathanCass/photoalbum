@@ -1,6 +1,5 @@
 import React from 'react'
 import albums from '../assets/albums/albums.json'
-import store from '../store'
 
 const styles = {
 	backButton:{
@@ -61,26 +60,19 @@ class custom extends React.Component {
     })
   }
   handleSubmit = (e) => {
-    console.log('title is ' + this.state.title + 'url is ' + this.state.url + 'targetIndex is ' + this.state.targetIndex)
+  	var notAdded = true
     albums.forEach(( album , i ) =>{
   		if (album.title === this.state.title) {
-  			this.setState({
-          		targetIndex : i
-    		})
+  			albums[i].photos.push(this.state.url)
+  			notAdded = false
   		}
   	})
-    if( Number(this.state.targetIndex) === Number(albums.length)){
+    if(notAdded){
     	albums.push({ title: this.state.title, index: albums.length, photos: [this.state.url] })
-    }
-    else{
-    	//albums[this.state.targetIndex].photos.push(this.state.url)
-    	console.log('albums[this.state.targetIndex].photos = ' + albums[this.state.targetIndex].photos)
-    	albums[this.state.targetIndex].photos = [...albums[this.state.targetIndex].photos, this.state.url]
     }
     this.setState({
         title: '',
-        url: '',
-        targetIndex : albums.length
+        url: ''
     })
   }
   render() {
