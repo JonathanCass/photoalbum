@@ -6,11 +6,11 @@ import {Link} from 'react-router-dom'
 const styles = {
 	backButton:{
 		marginLeft: 20,
-		width: 180,
-		height: 35,
+		width: 200,
+		height: 40,
 		position: 'relative',
 		top: 50,
-    fontSize: 16
+    fontSize: 15
 	},
 	label:{
 		textAlign: 'center',
@@ -31,31 +31,45 @@ const styles = {
     height: 35,
     margin: 30,
     fontSize: 14
+  },
+  hide:{
+    display: 'none'
   }
 }
 
 class pView extends React.Component {
-  /*constructor(props) {
+  constructor(props) {
     super(props)
+    this.state = { storedTitle : '' }  
   }
+  
   componentWillMount() {
-    store.subscribe(()=>{
-      let index = store.getState()
-      console.log('store.getState.index' + store.getState().index)
+  //  store.subscribe(()=>{
+  //  let index = store.getState()
+      albums.forEach(album=>{
+      if (Number(store.getState().index) === Number(album.index)){
+        this.setState({
+          storedTitle: album.title
+        })
+      }
     })
-  }*/
+  }
   handleBack = (e) => {
-    this.props.history.goBack()
+    albums.forEach(album=>{
+      if (Number(store.getState().index) === Number(album.index)){
+        this.props.history.push('../aView/' + album.title)
+      }
+    })
   }
   render() {
     return (
       <div style={styles.pContainer}>
-      	<button style={styles.backButton} onClick={this.handleBack}> Back to Album  {Number(store.getState().index) + 1} {store.getState().title}</button>
+      	<button style={styles.backButton} onClick={this.handleBack}> Back to {this.state.storedTitle} Album</button>
       	<h1 style={styles.label}> Photo Label </h1> 
         <img style={styles.photo} src={albums[store.getState().index].photos[this.props.match.params.photo]} alt="No error" />
         <div style={styles.npBar}>
-          <Link to={'/pView/' + ( Number(this.props.match.params.photo) - 1 ) } ><button style={styles.navButton}>Previous Picture</button></Link>
-          <Link to={'/pView/' + ( Number(this.props.match.params.photo) + 1 ) } ><button style={styles.navButton}>Next Picture</button></Link>
+          <Link to={'/pView/' + ( Number(this.props.match.params.photo) - 1 ) } ><button style={Number(this.props.match.params.photo) === 0 ? styles.hide : styles.navButton}>Previous Picture</button></Link>
+          <Link to={'/pView/' + ( Number(this.props.match.params.photo) + 1 ) } ><button style={Number(this.props.match.params.photo) === 5 ? styles.hide : styles.navButton}>Next Picture</button></Link>
         </div>
       </div>
       
