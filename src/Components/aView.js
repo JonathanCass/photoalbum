@@ -25,6 +25,15 @@ const styles = {
 		textAlign: 'center',
 		border: "solid black 2px",
 	},
+	custom:{
+		width: 180,
+		height: 40,
+		margin: '40px 0 20px 10px',
+		background: 'white',
+		lineHeight: '38px',
+		textAlign: 'center',
+		border: "solid black 2px",
+	},
 	pGrid:{
 		display: 'flex',
 		flexWrap: 'wrap',
@@ -84,6 +93,7 @@ class aView extends React.Component {
       		   			</Link>
       		   		)
                 })}
+                <Link to={'/custom/'}><li style={styles.custom}>Add Your Own Images</li></Link>
       		</ul>
       	</div>
       	<h1 style={styles.header}> {this.props.match.params.album} Album </h1> 

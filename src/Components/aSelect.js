@@ -28,11 +28,19 @@ const styles = {
 		border: "solid grey 2px",
 		borderWidth: ' 0 0 2px 0 '
 	},
+	custom:{
+		width: 200,
+		height: 300,
+		border: "solid grey 2px",
+		textAlign: 'center',
+		fontSize: 40,
+		paddingTop: 80
+	},
 	label: {
 		width: 190,
 		height: 50,
 		fontSize: 26,
-		lineHeight: '48px',
+		lineHeight: '42px',
 		textAlign: 'center'
 	},
 	link: {
@@ -61,6 +69,11 @@ class aSelect extends React.Component {
         				</Link>
         		    )
                 })}
+                <Link to={'/custom'} style={styles.link}>
+	                <div style={styles.custom}>
+	        			Add Your Own Images
+	        		</div>
+	        	</Link>
         	</div>
       </div>
     )
