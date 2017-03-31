@@ -69,7 +69,7 @@ class pView extends React.Component {
         <img style={styles.photo} src={albums[store.getState().index].photos[this.props.match.params.photo]} alt="No error" />
         <div style={styles.npBar}>
           <Link to={'/pView/' + ( Number(this.props.match.params.photo) - 1 ) } ><button style={Number(this.props.match.params.photo) === 0 ? styles.hide : styles.navButton}>Previous Picture</button></Link>
-          <Link to={'/pView/' + ( Number(this.props.match.params.photo) + 1 ) } ><button style={Number(this.props.match.params.photo) === 5 ? styles.hide : styles.navButton}>Next Picture</button></Link>
+          <Link to={'/pView/' + ( Number(this.props.match.params.photo) + 1 ) } ><button style={Number(this.props.match.params.photo) === Number(albums[store.getState().index].photos.length) - 1 ? styles.hide : styles.navButton}>Next Picture</button></Link>
         </div>
       </div>
       

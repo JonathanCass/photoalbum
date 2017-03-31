@@ -28,7 +28,7 @@ const styles = {
 	custom:{
 		width: 180,
 		height: 40,
-		margin: '40px 0 20px 10px',
+		margin: '40px 0 40px 10px',
 		background: 'white',
 		lineHeight: '38px',
 		textAlign: 'center',
@@ -86,6 +86,7 @@ class aView extends React.Component {
       <div>
       	<div style={styles.navBar}>
       		<ul style={styles.navList}>
+      			<Link to={'/'}><li style={styles.custom}>To Album Select Page</li></Link>	
       			{albums.map(function(album){
                 	return(
                 		<Link to={'/aView/' + album.title} key={'nav' + album.title} >
