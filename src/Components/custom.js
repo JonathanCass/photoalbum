@@ -24,14 +24,28 @@ const styles = {
     	border: "solid black 2px",
     	display: 'inline-block',
     	lineHeight: '48px',
-    	paddingLeft: 20
+    	paddingLeft: 20,
+    	whiteSpace: 'nowrap',
+  		overflow: 'hidden',
+  		textOverflow: 'ellipsis'
+  	},
+  	submit: {
+  		fontSize: 20,
+  		heigh: 50,
+  		width: 200,
+  		border: "solid black 2px",
+    	display: 'block',
+    	lineHeight: '48px',
+    	paddingLeft: 0,
+    	background: 'green',
+    	margin: '10px 0 0 380px '
   	}
 }
 
 class custom extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { title : '', url : ''}
+    this.state = { title : '', url : '', targetIndex : albums.length}
   }
   handleBack = (e) => {
   	this.props.history.goBack()
@@ -46,15 +60,39 @@ class custom extends React.Component {
       url: e.target.value
     })
   }
+  handleSubmit = (e) => {
+    console.log('title is ' + this.state.title + 'url is ' + this.state.url + 'targetIndex is ' + this.state.targetIndex)
+    albums.forEach(( album , i ) =>{
+  		if (album.title === this.state.title) {
+  			this.setState({
+          		targetIndex : i
+    		})
+  		}
+  	})
+    if( Number(this.state.targetIndex) === Number(albums.length)){
+    	albums.push({ title: this.state.title, index: albums.length, photos: [this.state.url] })
+    }
+    else{
+    	//albums[this.state.targetIndex].photos.push(this.state.url)
+    	console.log('albums[this.state.targetIndex].photos = ' + albums[this.state.targetIndex].photos)
+    	albums[this.state.targetIndex].photos = [...albums[this.state.targetIndex].photos, this.state.url]
+    }
+    this.setState({
+        title: '',
+        url: '',
+        targetIndex : albums.length
+    })
+  }
   render() {
     return (
       <div>
         <button style={styles.backButton} onClick={this.handleBack}> Return to Album Selections </button>
-        <form onSubmit={this.handleSubmit}>
+        <form >
             <input type="text" onChange={this.handleTitle} value={this.state.title} style={styles.input} placeholder="Enter title of Album to push photo onto." />
         	<input type="text" onChange={this.handleUrl} value={this.state.url} style={styles.input} placeholder="Enter Url of Photo." />
         </form>
         <div style={styles.display} >Destination Album is {this.state.title}.</div><div style={styles.display} >Photo link is {this.state.url} .</div>
+        <button onClick={this.handleSubmit} style={styles.submit}> Submit photo </button>
       </div>
     )
   }
