@@ -28,6 +28,15 @@ const styles = {
   		overflow: 'hidden',
   		textOverflow: 'ellipsis'
   	},
+  	testingHelper: {
+  		fontSize: 22,
+    	height: 50,
+    	width: 800,
+    	margin: 40,
+    	lineHeight: '48px',
+    	paddingLeft: 100,
+    	marginBottom: 0
+  	},
   	submit: {
   		fontSize: 20,
   		heigh: 50,
@@ -59,6 +68,16 @@ class custom extends React.Component {
       url: e.target.value
     })
   }
+  handleExampleTitle = (e) => {
+    this.setState({
+      title : 'Kaiju'
+    })
+  }
+  handleExampleUrl = (e) => {
+    this.setState({
+      url: "https://s-media-cache-ak0.pinimg.com/originals/5b/22/db/5b22db9e46073b6a9b633c181d8f1c82.jpg"
+    })
+  }
   handleSubmit = (e) => {
   	var notAdded = true
     albums.forEach(( album , i ) =>{
@@ -85,6 +104,8 @@ class custom extends React.Component {
         </form>
         <div style={styles.display} >Destination Album is {this.state.title}.</div><div style={styles.display} >Photo link is {this.state.url} .</div>
         <button onClick={this.handleSubmit} style={styles.submit}> Submit photo </button>
+        <div style={styles.testingHelper}> These Buttons are provided to assist in testing application functionality.</div>
+        <button style={styles.display} onClick={this.handleExampleTitle} >Press to Insert Custom Title of Kaiju</button><button style={styles.display} onClick={this.handleExampleUrl} >Press To Insert Url of a Godzilla Poster</button>
       </div>
     )
   }

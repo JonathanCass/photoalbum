@@ -63,7 +63,7 @@ class aSelect extends React.Component {
                 	return(
         				<Link to={'/aView/' + album.title} style={styles.link} key={'Album ' + album.title}>
         					<div style={styles.previewBox}>
-        						<img src={album.photos[1]} style={styles.preview} alt="No Error"/>
+        						<img src={album.photos[0]} style={styles.preview} alt="No Error"/>
         						<div style={styles.label}> {album.title} </div>
         					</div>
         				</Link>
