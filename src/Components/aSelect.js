@@ -36,9 +36,12 @@ const styles = {
 		height: 300,
 		border: "solid grey 2px",
 		textAlign: 'center',
-		fontSize: 40,
+		fontSize: 42,
+		background: '#B9090B',
+		paddingTop: 80,
+		fontWeight: 'bold',
 		color: 'white',
-		paddingTop: 80
+		webkitTextStroke: "2px black"
 	},
 	label: {
 		width: 190,

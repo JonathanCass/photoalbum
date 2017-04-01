@@ -6,7 +6,7 @@ const styles = {
     background: '#A40406'
   },
 	backButton:{
-		margin: 40,
+		margin: '40px 40px 20px 40px',
 	  width: 200,
 		height: 40,
     fontSize: 15
@@ -15,7 +15,7 @@ const styles = {
     fontSize: 20,
     height: 50,
     width: 400,
-    margin: 40,
+    margin: '40px 40px 30px 40px',
     paddingLeft: 20,
     border: "solid black 2px",
   },
@@ -23,7 +23,7 @@ const styles = {
   	fontSize: 20,
     height: 50,
     width: 400,
-    margin: 40,
+    margin: '40px 40px 20px 40px',
     border: "solid black 2px",
     display: 'inline-block',
     lineHeight: '48px',
@@ -37,10 +37,26 @@ const styles = {
   	fontSize: 22,
     height: 50,
     width: 800,
-    margin: 40,
+    margin: '20px 40px 20px 40px',
     lineHeight: '48px',
     paddingLeft: 100,
-    marginBottom: 0
+  },
+  genreContainer:{
+    display: 'flex',
+    flexWrap: 'wrap',
+    width: 900,
+    margin: "0 0 20px 40px"
+  },
+  existingGenre: {
+    width: 205,
+    height: 40,
+    margin: '0 20px 14px 0',
+    background: '#429441',
+    lineHeight: '38px',
+    textAlign: 'center',
+    border: "solid white 2px",
+    fontSize: 22,
+    color: 'white'
   },
   submit: {
   	fontSize: 20,
@@ -83,6 +99,11 @@ class custom extends React.Component {
       url: "https://s-media-cache-ak0.pinimg.com/originals/5b/22/db/5b22db9e46073b6a9b633c181d8f1c82.jpg"
     })
   }
+  handleExisting = (e) => {
+    this.setState({
+      title : e.target.value
+    })
+  }
   handleSubmit = (e) => {
   	var notAdded = true
     albums.forEach(( album , i ) =>{
@@ -108,6 +129,14 @@ class custom extends React.Component {
         	<input type="text" onChange={this.handleUrl} value={this.state.url} style={styles.input} placeholder="Enter Url of Poster." />
         </form>
         <div style={styles.display} >Destination Genre is {this.state.title}.</div><div style={styles.display} >Poster link is {this.state.url} .</div>
+        <div style={styles.genreContainer}>
+          <div style={styles.testingHelper}> Press an existing genre to insert it into the genre field </div>  
+          {albums.map(function(album){
+            return(
+              <button style={styles.existingGenre} onClick={this.handleExisting} value={album.title} key={album.title}> {album.title} </button>
+            )
+          }.bind(this))}
+        </div>
         <button onClick={this.handleSubmit} style={styles.submit}> Submit Poster </button>
         <div style={styles.testingHelper}> These Buttons are provided to assist in testing application functionality.</div>
         <button style={styles.display} onClick={this.handleExampleTitle} >Press to Insert Custom Title of Kaiju</button><button style={styles.display} onClick={this.handleExampleUrl} >Press To Insert Url of a Godzilla Poster</button>

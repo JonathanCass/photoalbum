@@ -8,7 +8,7 @@ Can navigate through pictures in picture view mode via Previous and Next Buttons
 The Previous button will be hidden when displaying the first image in the array and the Next button will likewise be hidden while displaying the final picture of the array.  
 
 
-Added buttons to add custom photo page to assist in testing.
+Custom poster page now has buttons to allow for quick input of an existing genre into the field and a couple of other buttons to assist with testing.  
 Added a link to the Album Select page in Album select nav bar to allow for a better Album browsing experience.  
 
 Assignment Instructions 
