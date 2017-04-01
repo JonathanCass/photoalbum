@@ -8,8 +8,8 @@ const styles = {
 	navBar: {
 		float: 'left',
 		width: 200,
-		background: 'grey',
-		height: 1420
+		height: 1420,
+		background: '#B9090B'
 	},
 	navList: {
 		listStyle: 'none',
@@ -20,10 +20,11 @@ const styles = {
 		width: 180,
 		height: 40,
 		margin: '0 0 20px 10px',
-		background: 'green',
+		background: '#429441',
 		lineHeight: '38px',
 		textAlign: 'center',
 		border: "solid black 2px",
+		fontSize: 22
 	},
 	custom:{
 		width: 180,
@@ -58,14 +59,20 @@ const styles = {
 		height: 50,
 		border: "solid grey 2px",
 		lineHeight: '48px',
-		textAlign: 'center'
+		textAlign: 'center',
+		fontSize: 26,
+		color: 'white'
 	},
 	header: {
-		background: 'transparent',
+		background: '#B9090B',
 		textAlign: 'center',
 		margin: 0,
 		paddingTop: 40,
-		fontSize: 52
+		paddingBottom: 20,
+		fontSize: 60,
+		fontFamily: 'Alfa Slab One',
+		color: 'white',
+		webkitTextStroke: "2px black",
 	}
 }
 
@@ -83,7 +90,7 @@ class aView extends React.Component {
   render() {
   	this.indexChange()
     return (
-      <div>
+      <div className="aView">
       	<div style={styles.navBar}>
       		<ul style={styles.navList}>
       			<Link to={'/'}><li style={styles.custom}>To Album Select Page</li></Link>	

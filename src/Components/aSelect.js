@@ -4,10 +4,13 @@ import albums from '../assets/albums/albums.json'
 
 const styles = {
 	header:{
-		height: 100,
-		lineHeight: '92px',
-		fontSize: 40,
-		background: 'grey',
+		height: 140,
+		lineHeight: '142px',
+		fontSize: 60,
+		background: '#B9090B',
+		color: 'white',
+		webkitTextStroke: "2px black",
+		fontFamily: 'Alfa Slab One',
 		margin:0,
 		display: 'flex',
 		justifyContent: 'center'
@@ -34,6 +37,7 @@ const styles = {
 		border: "solid grey 2px",
 		textAlign: 'center',
 		fontSize: 40,
+		color: 'white',
 		paddingTop: 80
 	},
 	label: {
@@ -41,7 +45,8 @@ const styles = {
 		height: 50,
 		fontSize: 26,
 		lineHeight: '42px',
-		textAlign: 'center'
+		textAlign: 'center',
+		color: 'white',
 	},
 	link: {
 		display: 'block',
@@ -56,9 +61,9 @@ class aSelect extends React.Component {
 
   render() {
     return (
-      <div style={styles.asContainer}>
-        <h1 style={styles.header}>My Albums</h1>
-        	<div style={styles.aGrid}>
+      <div className="aSelect" style={styles.asContainer}>
+        <h1 style={styles.header}>Movie Genres</h1>
+        	<div  style={styles.aGrid}>
         		{albums.map(function(album){
                 	return(
         				<Link to={'/aView/' + album.title} style={styles.link} key={'Album ' + album.title}>

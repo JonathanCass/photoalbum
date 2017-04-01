@@ -4,6 +4,9 @@ import store from '../store'
 import {Link} from 'react-router-dom'
 
 const styles = {
+  pContainer:{
+    background:"#CB0000"
+  },
 	backButton:{
 		marginLeft: 20,
 		width: 200,
@@ -14,6 +17,11 @@ const styles = {
 	},
 	label:{
 		textAlign: 'center',
+    fontSize: 60,
+    color: 'white',
+    webkitTextStroke: "2px black",
+    fontFamily: 'Alfa Slab One',
+    margin: 0
 	},
 	photo:{
 		height: 600,
@@ -65,7 +73,7 @@ class pView extends React.Component {
     return (
       <div style={styles.pContainer}>
       	<button style={styles.backButton} onClick={this.handleBack}> Back to {this.state.storedTitle} Album</button>
-      	<h1 style={styles.label}> Photo {Number(this.props.match.params.photo) + 1} </h1> 
+      	<h1 style={styles.label}> Poster {Number(this.props.match.params.photo) + 1} </h1> 
         <img style={styles.photo} src={albums[store.getState().index].photos[this.props.match.params.photo]} alt="No error" />
         <div style={styles.npBar}>
           <Link to={'/pView/' + ( Number(this.props.match.params.photo) - 1 ) } ><button style={Number(this.props.match.params.photo) === 0 ? styles.hide : styles.navButton}>Previous Picture</button></Link>
