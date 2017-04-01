@@ -2,52 +2,57 @@ import React from 'react'
 import albums from '../assets/albums/albums.json'
 
 const styles = {
+  cContainer: {
+    background: '#A40406'
+  },
 	backButton:{
 		margin: 40,
-		width: 200,
+	  width: 200,
 		height: 40,
-    	fontSize: 15
+    fontSize: 15
 	},
 	input: {
-    	fontSize: 20,
-    	height: 50,
-    	width: 400,
-    	margin: 40,
-    	paddingLeft: 20
-  	},
-  	display: {
-  		fontSize: 20,
-    	height: 50,
-    	width: 400,
-    	margin: 40,
-    	border: "solid black 2px",
-    	display: 'inline-block',
-    	lineHeight: '48px',
-    	paddingLeft: 20,
-    	whiteSpace: 'nowrap',
-  		overflow: 'hidden',
-  		textOverflow: 'ellipsis'
-  	},
-  	testingHelper: {
-  		fontSize: 22,
-    	height: 50,
-    	width: 800,
-    	margin: 40,
-    	lineHeight: '48px',
-    	paddingLeft: 100,
-    	marginBottom: 0
-  	},
-  	submit: {
-  		fontSize: 20,
-  		heigh: 50,
-  		width: 200,
-  		border: "solid black 2px",
-    	display: 'block',
-    	lineHeight: '48px',
-    	paddingLeft: 0,
-    	background: 'green',
-    	margin: '10px 0 0 380px '
-  	}
+    fontSize: 20,
+    height: 50,
+    width: 400,
+    margin: 40,
+    paddingLeft: 20,
+    border: "solid black 2px",
+  },
+  display: {
+  	fontSize: 20,
+    height: 50,
+    width: 400,
+    margin: 40,
+    border: "solid black 2px",
+    display: 'inline-block',
+    lineHeight: '48px',
+    paddingLeft: 20,
+    whiteSpace: 'nowrap',
+  	overflow: 'hidden',
+  	textOverflow: 'ellipsis',
+    background: 'white'
+  },
+  testingHelper: {
+  	fontSize: 22,
+    height: 50,
+    width: 800,
+    margin: 40,
+    lineHeight: '48px',
+    paddingLeft: 100,
+    marginBottom: 0
+  },
+  submit: {
+  	fontSize: 20,
+  	heigh: 50,
+  	width: 200,
+  	border: "solid black 2px",
+    display: 'block',
+    lineHeight: '48px',
+    paddingLeft: 0,
+    background: '#429441',
+    margin: '10px 0 0 380px '
+  }
 }
 
 class custom extends React.Component {
@@ -96,14 +101,14 @@ class custom extends React.Component {
   }
   render() {
     return (
-      <div>
-        <button style={styles.backButton} onClick={this.handleBack}> Return to Album Selections </button>
+      <div style={styles.cContainer} >
+        <button style={styles.backButton} onClick={this.handleBack}> Return to Genre Selection </button>
         <form >
-            <input type="text" onChange={this.handleTitle} value={this.state.title} style={styles.input} placeholder="Enter title of Album to push photo onto." />
-        	<input type="text" onChange={this.handleUrl} value={this.state.url} style={styles.input} placeholder="Enter Url of Photo." />
+            <input type="text" onChange={this.handleTitle} value={this.state.title} style={styles.input} placeholder="Enter title of Genre to push Poster onto." />
+        	<input type="text" onChange={this.handleUrl} value={this.state.url} style={styles.input} placeholder="Enter Url of Poster." />
         </form>
-        <div style={styles.display} >Destination Album is {this.state.title}.</div><div style={styles.display} >Photo link is {this.state.url} .</div>
-        <button onClick={this.handleSubmit} style={styles.submit}> Submit photo </button>
+        <div style={styles.display} >Destination Genre is {this.state.title}.</div><div style={styles.display} >Poster link is {this.state.url} .</div>
+        <button onClick={this.handleSubmit} style={styles.submit}> Submit Poster </button>
         <div style={styles.testingHelper}> These Buttons are provided to assist in testing application functionality.</div>
         <button style={styles.display} onClick={this.handleExampleTitle} >Press to Insert Custom Title of Kaiju</button><button style={styles.display} onClick={this.handleExampleUrl} >Press To Insert Url of a Godzilla Poster</button>
       </div>

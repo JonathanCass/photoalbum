@@ -76,7 +76,7 @@ class aSelect extends React.Component {
                 })}
                 <Link to={'/custom'} style={styles.link}>
 	                <div style={styles.custom}>
-	        			Add Your Own Images
+	        			Add Your Own Posters
 	        		</div>
 	        	</Link>
         	</div>

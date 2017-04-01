@@ -93,7 +93,7 @@ class aView extends React.Component {
       <div className="aView">
       	<div style={styles.navBar}>
       		<ul style={styles.navList}>
-      			<Link to={'/'}><li style={styles.custom}>To Album Select Page</li></Link>	
+      			<Link to={'/'}><li style={styles.custom}>To Genre Select Page</li></Link>	
       			{albums.map(function(album){
                 	return(
                 		<Link to={'/aView/' + album.title} key={'nav' + album.title} >
@@ -101,10 +101,10 @@ class aView extends React.Component {
       		   			</Link>
       		   		)
                 })}
-                <Link to={'/custom/'}><li style={styles.custom}>Add Your Own Images</li></Link>
+                <Link to={'/custom/'}><li style={styles.custom}>Add Your Own Posters</li></Link>
       		</ul>
       	</div>
-      	<h1 style={styles.header}> {this.props.match.params.album} Album </h1> 
+      	<h1 style={styles.header}> {this.props.match.params.album} Gallery </h1> 
         <div style={styles.pGrid}>
         		{albums[store.getState().index].photos.map(function(photo, i){
                 	return(
