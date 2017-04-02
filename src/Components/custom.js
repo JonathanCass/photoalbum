@@ -6,7 +6,7 @@ const styles = {
     background: '#A40406',
     height: 1400
   },
-	backButton:{
+	backButton: {
 		margin: '40px 40px 20px 40px',
 	  width: 200,
 		height: 40,
@@ -42,7 +42,7 @@ const styles = {
     lineHeight: '48px',
     paddingLeft: 100,
   },
-  genreContainer:{
+  genreContainer: {
     display: 'flex',
     flexWrap: 'wrap',
     width: 900,
@@ -106,16 +106,16 @@ class custom extends React.Component {
     })
   }
   handleSubmit = (e) => {
-  	var notAdded = true
-    albums.forEach(( album , i ) =>{
+  	var notAdded = true          //Boolean variable to determine if new Genre needs to be created
+    albums.forEach(( album , i ) =>{          //Check to find inputted title amongst existing titles
   		if (album.title === this.state.title) {
   			albums[i].photos.push(this.state.url)
-  			notAdded = false
+  			notAdded = false                     //If found sets the Boolean to false to prevent creating a new Category
   		}
   	})
-    if(notAdded){
+    if(notAdded){                            
     	albums.push({ title: this.state.title, index: albums.length, photos: [this.state.url] })
-    }
+    }                                         //Resets the fields after the submission has been processed
     this.setState({
         title: '',
         url: ''
@@ -125,8 +125,8 @@ class custom extends React.Component {
     return (
       <div style={styles.cContainer} >
         <button style={styles.backButton} onClick={this.handleBack}> Return to Genre Selection </button>
-        <form >
-            <input type="text" onChange={this.handleTitle} value={this.state.title} style={styles.input} placeholder="Enter title of Genre to push Poster onto." />
+        <form>
+          <input type="text" onChange={this.handleTitle} value={this.state.title} style={styles.input} placeholder="Enter title of Genre to push Poster onto." />
         	<input type="text" onChange={this.handleUrl} value={this.state.url} style={styles.input} placeholder="Enter Url of Poster." />
         </form>
         <div style={styles.display} >Destination Genre is {this.state.title}.</div><div style={styles.display} >Poster link is {this.state.url} .</div>

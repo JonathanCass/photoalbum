@@ -26,7 +26,7 @@ const styles = {
 		border: "solid black 2px",
 		fontSize: 22
 	},
-	custom:{
+	custom: {
 		width: 180,
 		height: 40,
 		margin: '40px 0 40px 10px',
@@ -35,13 +35,13 @@ const styles = {
 		textAlign: 'center',
 		border: "solid black 2px",
 	},
-	pGrid:{
+	pGrid: {
 		display: 'flex',
 		flexWrap: 'wrap',
 		padding: 40,
 		paddingRight: 0
 	},
-	previewBox:{
+	previewBox: {
 		width: 200,
 		height: 300,
 	},
@@ -77,9 +77,6 @@ const styles = {
 }
 
 class aView extends React.Component {
-  /*constructor(props) {
-    super(props)
-  }*/
   indexChange(){
   	albums.forEach(album=>{
   		if (album.title === this.props.match.params.album){

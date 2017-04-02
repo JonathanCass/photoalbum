@@ -4,8 +4,7 @@ import store from '../store'
 import {Link} from 'react-router-dom'
 
 const styles = {
-  pContainer:{
-    //background:"#CB0000",
+  pContainer: {
     height: 1000
   },
 	backButton:{
@@ -16,7 +15,7 @@ const styles = {
 		top: 50,
     fontSize: 15
 	},
-	label:{
+	label: {
 		textAlign: 'center',
     fontSize: 60,
     color: 'white',
@@ -24,18 +23,18 @@ const styles = {
     fontFamily: 'Alfa Slab One',
     margin: 0
 	},
-	photo:{
+	photo: {
 		height: 604,
 		width: 604,
 		position: 'center',
 		margin: 'auto',
 		display: 'block',
 	},
-  npBar:{
+  npBar: {
     display:'flex',
     justifyContent:'space-between'
   },
-  navButton:{
+  navButton: {
     width: 160,
     height: 35,
     margin: 30,
@@ -50,12 +49,9 @@ class pView extends React.Component {
   constructor(props) {
     super(props)
     this.state = { storedTitle : '' }  
-  }
-  
+  } 
   componentWillMount() {
-  //  store.subscribe(()=>{
-  //  let index = store.getState()
-      albums.forEach(album=>{
+    albums.forEach(album=>{
       if (Number(store.getState().index) === Number(album.index)){
         this.setState({
           storedTitle: album.title
@@ -80,8 +76,7 @@ class pView extends React.Component {
           <Link to={'/pView/' + ( Number(this.props.match.params.photo) - 1 ) } ><button style={Number(this.props.match.params.photo) === 0 ? styles.hide : styles.navButton}>Previous Picture</button></Link>
           <Link to={'/pView/' + ( Number(this.props.match.params.photo) + 1 ) } ><button style={Number(this.props.match.params.photo) === Number(albums[store.getState().index].photos.length) - 1 ? styles.hide : styles.navButton}>Next Picture</button></Link>
         </div>
-      </div>
-      
+      </div> 
     )
   }
 }

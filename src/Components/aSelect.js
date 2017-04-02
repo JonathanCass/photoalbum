@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import albums from '../assets/albums/albums.json'
 
 const styles = {
-	header:{
+	header: {
 		height: 140,
 		lineHeight: '142px',
 		fontSize: 60,
@@ -15,12 +15,12 @@ const styles = {
 		display: 'flex',
 		justifyContent: 'center'
 	},
-	aGrid:{
+	aGrid: {
 		display: 'flex',
 		flexWrap: 'wrap',
 		padding: 20
 	},
-	previewBox:{
+	previewBox: {
 		width: 200,
 		height: 300,
 		border: "solid grey 2px"
@@ -31,7 +31,7 @@ const styles = {
 		border: "solid grey 2px",
 		borderWidth: ' 0 0 2px 0 '
 	},
-	custom:{
+	custom: {
 		width: 200,
 		height: 300,
 		border: "solid grey 2px",
@@ -58,10 +58,6 @@ const styles = {
 }
 
 class aSelect extends React.Component {
-  /*constructor(props) {
-    super(props)
-  }*/
-
   render() {
     return (
       <div className="aSelect" style={styles.asContainer}>
