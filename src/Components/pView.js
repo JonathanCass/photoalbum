@@ -5,7 +5,8 @@ import {Link} from 'react-router-dom'
 
 const styles = {
   pContainer:{
-    background:"#CB0000"
+    //background:"#CB0000",
+    height: 1000
   },
 	backButton:{
 		marginLeft: 20,
@@ -24,11 +25,11 @@ const styles = {
     margin: 0
 	},
 	photo:{
-		height: 600,
-		width: 600,
+		height: 604,
+		width: 604,
 		position: 'center',
 		margin: 'auto',
-		display: 'block'
+		display: 'block',
 	},
   npBar:{
     display:'flex',
@@ -71,7 +72,7 @@ class pView extends React.Component {
   }
   render() {
     return (
-      <div style={styles.pContainer}>
+      <div style={styles.pContainer} className="pContainer">
       	<button style={styles.backButton} onClick={this.handleBack}> Back to {this.state.storedTitle} Album</button>
       	<h1 style={styles.label}> Poster {Number(this.props.match.params.photo) + 1} </h1> 
         <img style={styles.photo} src={albums[store.getState().index].photos[this.props.match.params.photo]} alt="No error" />
