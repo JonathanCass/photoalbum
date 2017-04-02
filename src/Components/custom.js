@@ -3,7 +3,8 @@ import albums from '../assets/albums/albums.json'
 
 const styles = {
   cContainer: {
-    background: '#A40406'
+    background: '#A40406',
+    height: 1400
   },
 	backButton:{
 		margin: '40px 40px 20px 40px',
@@ -138,7 +139,6 @@ class custom extends React.Component {
           }.bind(this))}
         </div>
         <button onClick={this.handleSubmit} style={styles.submit}> Submit Poster </button>
-        <div style={styles.testingHelper}> These Buttons are provided to assist in testing application functionality.</div>
         <button style={styles.display} onClick={this.handleExampleTitle} >Press to Insert Custom Title of Kaiju</button><button style={styles.display} onClick={this.handleExampleUrl} >Press To Insert Url of a Godzilla Poster</button>
       </div>
     )
