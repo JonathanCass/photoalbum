@@ -8,7 +8,7 @@ const styles = {
 	navBar: {
 		float: 'left',
 		width: 200,
-		height: 1420,
+		height: 2000,
 		background: '#B9090B'
 	},
 	navList: {
@@ -60,8 +60,8 @@ const styles = {
 		border: "solid grey 2px",
 		lineHeight: '48px',
 		textAlign: 'center',
-		fontSize: 26,
-		color: 'white'
+		color: 'white',
+		fontSize: 14
 	},
 	header: {
 		background: '#B9090B',
@@ -108,7 +108,7 @@ class aView extends React.Component {
 		        		<Link to={'/pView/' + i} style={styles.link} key={'preview' + i}>
 		        			<div style={styles.previewBox}>
 		        				<img src={photo} style={styles.preview} alt="No Error"/>
-		        				<div style={styles.label}> Poster {i + 1} </div>
+		        				<div style={styles.label}> {albums[store.getState().index].movieTitles[i]} </div>
 		        			</div>
 		        		</Link>
         				)

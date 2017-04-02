@@ -12,7 +12,7 @@ const styles = {
 		width: 200,
 		height: 40,
 		position: 'relative',
-		top: 50,
+		top: 20,
     fontSize: 15
 	},
 	label: {
@@ -21,7 +21,7 @@ const styles = {
     color: 'white',
     webkitTextStroke: "2px black",
     fontFamily: 'Alfa Slab One',
-    margin: 0
+    margin: '20px 0 0 0 '
 	},
 	photo: {
 		height: 604,
@@ -70,7 +70,7 @@ class pView extends React.Component {
     return (
       <div style={styles.pContainer} className="pContainer">
       	<button style={styles.backButton} onClick={this.handleBack}> Back to {this.state.storedTitle} Album</button>
-      	<h1 style={styles.label}> Poster {Number(this.props.match.params.photo) + 1} </h1> 
+      	<h1 style={styles.label}> {albums[store.getState().index].movieTitles[Number(this.props.match.params.photo)]} </h1> 
         <img style={styles.photo} src={albums[store.getState().index].photos[this.props.match.params.photo]} alt="No error" />
         <div style={styles.npBar}>
           <Link to={'/pView/' + ( Number(this.props.match.params.photo) - 1 ) } ><button style={Number(this.props.match.params.photo) === 0 ? styles.hide : styles.navButton}>Previous Picture</button></Link>
