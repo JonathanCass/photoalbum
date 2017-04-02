@@ -20,7 +20,7 @@
 	{	"title" : "Comedies",
 		"index" : "3",
 		"photos" : ["https://store-media.nytimes.com/store/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/g/h/ghostbusters.jpg", "https://www.movieposter.com/posters/archive/main/156/MPW-78297","https://www.movieposter.com/posters/archive/main/38/MPW-19404", "https://images-na.ssl-images-amazon.com/images/I/51qVp-dXLgL.jpg", "http://www.fatmovieguy.com/wp-content/uploads/2014/12/bill-and-teds-excellent-adventure-poster.jpg", "https://www.movieposter.com/posters/archive/main/50/MPW-25083","http://www.impawards.com/1996/posters/mars_attacks_ver3.jpg","http://www.movieposter.com/posters/archive/main/105/MPW-52982","https://starreviews.files.wordpress.com/2012/04/dr-strangelove.jpg"],
-		"movieTitles" : ["Ghostbusters","Airplane","Spaceballs","Caddyshack","Bill & Ted's Excellent Adventure","Gremlins","Mars Attacks","The Cable Guy","Dr. Strangelove"]
+		"movieTitles" : ["Ghostbusters","Airplane","Spaceballs","Caddyshack","Bill&Ted's Excellent Adventure","Gremlins","Mars Attacks","The Cable Guy","Dr. Strangelove"]
 	},
 	{	
 		"title" : "Horror",

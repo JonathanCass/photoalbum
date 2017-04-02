@@ -75,7 +75,7 @@ const styles = {
 class custom extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { title : '', url : '', targetIndex : albums.length}
+    this.state = { title : '', url : '', movieTitle : '', targetIndex : albums.length}
   }
   handleBack = (e) => {
   	this.props.history.goBack()
@@ -90,6 +90,11 @@ class custom extends React.Component {
       url: e.target.value
     })
   }
+  handleMovieTitle = (e) => {
+    this.setState({
+      movieTitle: e.target.value
+    })
+  }
   handleExampleTitle = (e) => {
     this.setState({
       title : 'Kaiju'
@@ -98,6 +103,11 @@ class custom extends React.Component {
   handleExampleUrl = (e) => {
     this.setState({
       url: "https://s-media-cache-ak0.pinimg.com/originals/5b/22/db/5b22db9e46073b6a9b633c181d8f1c82.jpg"
+    })
+  }
+  handleExampleMovieTItle = (e) => {
+    this.setState({
+      movieTitle: "Godzilla: Final Wars"
     })
   }
   handleExisting = (e) => {
@@ -110,15 +120,17 @@ class custom extends React.Component {
     albums.forEach(( album , i ) =>{          //Check to find inputted title amongst existing titles
   		if (album.title === this.state.title) {
   			albums[i].photos.push(this.state.url)
+        albums[i].movieTitles.push(this.state.movieTitle)
   			notAdded = false                     //If found sets the Boolean to false to prevent creating a new Category
   		}
   	})
     if(notAdded){                            
-    	albums.push({ title: this.state.title, index: albums.length, photos: [this.state.url] })
+    	albums.push({ title: this.state.title, index: albums.length, photos: [this.state.url], movieTitles: [this.state.movieTitle] })
     }                                         //Resets the fields after the submission has been processed
     this.setState({
         title: '',
-        url: ''
+        url: '',
+        movieTitle: ''
     })
   }
   render() {
@@ -128,8 +140,9 @@ class custom extends React.Component {
         <form>
           <input type="text" onChange={this.handleTitle} value={this.state.title} style={styles.input} placeholder="Enter title of Genre to push Poster onto." />
         	<input type="text" onChange={this.handleUrl} value={this.state.url} style={styles.input} placeholder="Enter Url of Poster." />
+          <input type="text" onChange={this.handleMovieTitle} value={this.state.movieTitle} style={styles.input} placeholder="Enter Title of Move." />
         </form>
-        <div style={styles.display} >Destination Genre is {this.state.title}.</div><div style={styles.display} >Poster link is {this.state.url} .</div>
+        <div style={styles.display} >Destination Genre is {this.state.title}.</div><div style={styles.display} >Poster link is {this.state.url} .</div><div style={styles.display} >Movie Title is {this.state.movieTitle} .</div>
         <div style={styles.genreContainer}>
           <div style={styles.testingHelper}> Press an existing genre to insert it into the genre field </div>  
           {albums.map(function(album){
@@ -139,7 +152,7 @@ class custom extends React.Component {
           }.bind(this))}
         </div>
         <button onClick={this.handleSubmit} style={styles.submit}> Submit Poster </button>
-        <button style={styles.display} onClick={this.handleExampleTitle} >Press to Insert Custom Title of Kaiju</button><button style={styles.display} onClick={this.handleExampleUrl} >Press To Insert Url of a Godzilla Poster</button>
+        <button style={styles.display} onClick={this.handleExampleTitle} >Press to Insert Custom Title of Kaiju</button><button style={styles.display} onClick={this.handleExampleUrl} >Press To Insert Url of a Godzilla Poster</button><button style={styles.display} onClick={this.handleExampleMovieTItle} >Press To Insert Title of Godzila: Final Wars</button>
       </div>
     )
   }
